@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{91A37B5B-8A72-4DAB-9FE8-F984BEB76DE5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>APP_Comercio</RootNamespace>
+    <AssemblyName>APP_Comercio</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.5.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.6.1\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmAgregarArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgregarArticulo.Designer.cs">
+      <DependentUpon>FrmAgregarArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetalleArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetalleArticulo.Designer.cs">
+      <DependentUpon>FrmDetalleArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEliminarArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEliminarArticulo.Designer.cs">
+      <DependentUpon>FrmEliminarArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuPrincipal.Designer.cs">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBusquedaAticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBusquedaAticulo.Designer.cs">
+      <DependentUpon>FrmBusquedaAticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListadoDeArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoDeArticulos.Designer.cs">
+      <DependentUpon>FrmListadoDeArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModficarArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModficarArticulo.Designer.cs">
+      <DependentUpon>FrmModficarArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAgregarArticulo.resx">
+      <DependentUpon>FrmAgregarArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetalleArticulo.resx">
+      <DependentUpon>FrmDetalleArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEliminarArticulo.resx">
+      <DependentUpon>FrmEliminarArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipal.resx">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBusquedaAticulo.resx">
+      <DependentUpon>FrmBusquedaAticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoDeArticulos.resx">
+      <DependentUpon>FrmListadoDeArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModficarArticulo.resx">
+      <DependentUpon>FrmModficarArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list--v1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\306458.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Graphicloads-Colorful-Long-Shadow-Add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Graphicloads-Colorful-Long-Shadow-Add1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system-software-update-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_286553.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-icon-png-close-window-icon-png-0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-detail-png-5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-icon-png-close-window-icon-png-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-icon-13590.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\69e0d01c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6045658cb8c73ad98963005a99c73661-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5882630341556282331-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1352231607285850304.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Konfest-PNG-JPG-Image-Pic-Photo-Free-Download-Royalty-Unlimited-clip-art-sticker-icons-search-symbol-find-magnifying-glass-161-400x371.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list-icon-png-7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-computer-icons-academic-writing-reading-iconfinder-png-vector-details-5ab0469fbc95a0.6919429515215018557725.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-computer-icons-academic-writing-reading-iconfinder-png-vector-details-5ab0469fbc95a0.6919429515215018557725.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\699423-icon-45-note-list-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\588a666dd06f6719692a2d18.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
