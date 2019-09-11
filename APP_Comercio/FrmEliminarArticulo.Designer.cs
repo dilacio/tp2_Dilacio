@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             this.lblHome = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pctHome = new System.Windows.Forms.PictureBox();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDetalleArticulo = new System.Windows.Forms.DataGridView();
             this.lblEliminarArticulo = new System.Windows.Forms.Label();
-            this.txbIngresoArticulo = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.cbxArticulo = new System.Windows.Forms.ComboBox();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblHome
@@ -54,22 +53,6 @@
             this.lblHome.Size = new System.Drawing.Size(113, 15);
             this.lblHome.TabIndex = 13;
             this.lblHome.Text = "Eliminar articulo";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBuscar.Location = new System.Drawing.Point(671, 63);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(129, 23);
-            this.btnBuscar.TabIndex = 27;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
@@ -114,13 +97,14 @@
             this.textBox5.TabIndex = 25;
             this.textBox5.Text = "Sistema de gestion comercial";
             // 
-            // dataGridView1
+            // dgvDetalleArticulo
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 104);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(769, 218);
-            this.dataGridView1.TabIndex = 24;
+            this.dgvDetalleArticulo.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
+            this.dgvDetalleArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleArticulo.Location = new System.Drawing.Point(31, 143);
+            this.dgvDetalleArticulo.Name = "dgvDetalleArticulo";
+            this.dgvDetalleArticulo.Size = new System.Drawing.Size(769, 179);
+            this.dgvDetalleArticulo.TabIndex = 24;
             // 
             // lblEliminarArticulo
             // 
@@ -129,20 +113,9 @@
             this.lblEliminarArticulo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblEliminarArticulo.Location = new System.Drawing.Point(28, 68);
             this.lblEliminarArticulo.Name = "lblEliminarArticulo";
-            this.lblEliminarArticulo.Size = new System.Drawing.Size(187, 18);
+            this.lblEliminarArticulo.Size = new System.Drawing.Size(183, 18);
             this.lblEliminarArticulo.TabIndex = 23;
-            this.lblEliminarArticulo.Text = "Ingrese el articulo a Eliminar:";
-            // 
-            // txbIngresoArticulo
-            // 
-            this.txbIngresoArticulo.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.txbIngresoArticulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbIngresoArticulo.ForeColor = System.Drawing.SystemColors.Window;
-            this.txbIngresoArticulo.Location = new System.Drawing.Point(210, 68);
-            this.txbIngresoArticulo.Multiline = true;
-            this.txbIngresoArticulo.Name = "txbIngresoArticulo";
-            this.txbIngresoArticulo.Size = new System.Drawing.Size(431, 18);
-            this.txbIngresoArticulo.TabIndex = 22;
+            this.lblEliminarArticulo.Text = "Ingrese el articulo a Eliminar";
             // 
             // btnEliminar
             // 
@@ -159,6 +132,18 @@
             this.btnEliminar.TabIndex = 28;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            // 
+            // cbxArticulo
+            // 
+            this.cbxArticulo.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbxArticulo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbxArticulo.FormattingEnabled = true;
+            this.cbxArticulo.Location = new System.Drawing.Point(241, 65);
+            this.cbxArticulo.Name = "cbxArticulo";
+            this.cbxArticulo.Size = new System.Drawing.Size(559, 21);
+            this.cbxArticulo.TabIndex = 29;
+            this.cbxArticulo.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // FrmEliminarArticulo
             // 
@@ -166,21 +151,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(832, 493);
+            this.Controls.Add(this.cbxArticulo);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvDetalleArticulo);
             this.Controls.Add(this.lblEliminarArticulo);
-            this.Controls.Add(this.txbIngresoArticulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmEliminarArticulo";
             this.Text = "FrmEliminarArticulo";
+            this.Load += new System.EventHandler(this.FrmEliminarArticulo_Load);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,12 +176,11 @@
         private System.Windows.Forms.PictureBox pctHome;
         private System.Windows.Forms.PictureBox pctCerrar;
         private System.Windows.Forms.Label lblHome;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDetalleArticulo;
         private System.Windows.Forms.Label lblEliminarArticulo;
-        private System.Windows.Forms.TextBox txbIngresoArticulo;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.ComboBox cbxArticulo;
     }
 }

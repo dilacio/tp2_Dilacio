@@ -88,7 +88,7 @@ namespace APP_Comercio
         private void Button2_Click(object sender, EventArgs e)
         {
             FrmAgregarArticulo AgregarArticulo = new FrmAgregarArticulo();
-            AgregarArticulo.Show();
+            AgregarArticulo.ShowDialog();
         }
 
         private void Button3_Click_1(object sender, EventArgs e)

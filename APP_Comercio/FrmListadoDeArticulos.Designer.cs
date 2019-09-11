@@ -28,26 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pctHome = new System.Windows.Forms.PictureBox();
             this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.lblHome = new System.Windows.Forms.Label();
+            this.dgvArticulo = new System.Windows.Forms.DataGridView();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.listBox1.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(45, 94);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(673, 290);
-            this.listBox1.TabIndex = 2;
             // 
             // label1
             // 
@@ -103,33 +94,43 @@
             this.lblHome.TabIndex = 13;
             this.lblHome.Text = "Eliminar articulo";
             // 
+            // dgvArticulo
+            // 
+            this.dgvArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArticulo.Location = new System.Drawing.Point(67, 107);
+            this.dgvArticulo.Name = "dgvArticulo";
+            this.dgvArticulo.Size = new System.Drawing.Size(645, 294);
+            this.dgvArticulo.TabIndex = 28;
+            // 
             // frmListadoDeArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvArticulo);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListadoDeArticulos";
             this.Text = "ListadoDeArticulos";
+            this.Load += new System.EventHandler(this.FrmListadoDeArticulos_Load);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pctHome;
         private System.Windows.Forms.PictureBox pctCerrar;
         private System.Windows.Forms.Label lblHome;
+        private System.Windows.Forms.DataGridView dgvArticulo;
     }
 }

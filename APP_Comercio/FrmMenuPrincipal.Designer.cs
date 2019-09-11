@@ -50,10 +50,6 @@
             this.tbxModificar = new System.Windows.Forms.TextBox();
             this.pcbUpdate = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pctHome = new System.Windows.Forms.PictureBox();
@@ -71,8 +67,6 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbUpdate)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
@@ -356,69 +350,16 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.panel6);
             this.groupBox2.Controls.Add(this.panel1);
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            this.groupBox2.Location = new System.Drawing.Point(66, 273);
+            this.groupBox2.Location = new System.Drawing.Point(159, 273);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(460, 183);
+            this.groupBox2.Size = new System.Drawing.Size(298, 183);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Listados y busquedas";
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            this.panel6.Controls.Add(this.button6);
-            this.panel6.Controls.Add(this.textBox6);
-            this.panel6.Controls.Add(this.pictureBox5);
-            this.panel6.Location = new System.Drawing.Point(318, 19);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(103, 151);
-            this.panel6.TabIndex = 8;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.SteelBlue;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button6.Location = new System.Drawing.Point(17, 115);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(69, 23);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "Ingresar";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.Button6_Click_1);
-            // 
-            // textBox6
-            // 
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(242)))));
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox6.Location = new System.Drawing.Point(9, 16);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(79, 32);
-            this.textBox6.TabIndex = 4;
-            this.textBox6.Text = "Detalle de Articulos";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::APP_Comercio.Properties.Resources._699423_icon_45_note_list_512;
-            this.pictureBox5.Location = new System.Drawing.Point(22, 54);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(57, 42);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 1;
-            this.pictureBox5.TabStop = false;
             // 
             // textBox5
             // 
@@ -509,9 +450,6 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbUpdate)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctHome)).EndInit();
@@ -540,16 +478,12 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label lblHome;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnFrmUpdate;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pctCerrar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pctHome;

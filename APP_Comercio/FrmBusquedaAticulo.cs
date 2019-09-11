@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Negocio;
 
 
 namespace APP_Comercio
@@ -36,6 +38,27 @@ namespace APP_Comercio
         private void PctCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FrmBusquedaAticulo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio ArtNeg = new ArticuloNegocio();
+
+            try
+            {
+                 
+                dgvArticulo.DataSource = ArtNeg.Buscar(txbCadenaBuscar.Text); ;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
         }
     }
 }
