@@ -53,6 +53,8 @@ namespace APP_Comercio
             {
                  
                 dgvArticulo.DataSource = ArtNeg.Buscar(txbCadenaBuscar.Text); ;
+                dgvArticulo.Columns[0].Visible = false;
+                dgvArticulo.Columns[3].Visible = false;
             }
             catch (Exception Ex)
             {

@@ -46,34 +46,111 @@ namespace APP_Comercio
             this.Close();
         }
 
+        public bool Valida_campos ()
+        {
+            bool ValCod, ValNombre, ValDesc, ValPrecio;
+
+            try
+            {
+                //Codigo de Articulo
+                if (txbCodArticulo.Text == "")
+                {
+                    ValCod = false;
+                    txbCodArticulo.BackColor = Color.Red;
+                }
+                else
+                {
+                    ValCod = true;
+                    txbCodArticulo.BackColor = Color.White;
+                }
+                //Descripcion
+                if (txbDescripcion.Text == "")
+                {
+                    ValDesc = false;
+                    txbDescripcion.BackColor = Color.Red;
+                }
+                else
+                {
+                    ValDesc = true;
+                    txbDescripcion.BackColor = Color.White;
+                }
+                //Precio
+                if (txbPrecio.Text == "")
+                {
+                    ValPrecio = false;
+                    txbPrecio.BackColor = Color.Red;
+                }
+                else
+                {
+                    ValPrecio = true;
+                    txbPrecio.BackColor = Color.White;
+                }
+                //Nombre
+                if (tbxNombre.Text == "")
+                {
+                    ValNombre = false;
+                    tbxNombre.BackColor = Color.Red;
+                }
+                else
+                {
+                    ValNombre = true;
+                    tbxNombre.BackColor = Color.White;
+                }
+                //Verifico que todas las validaciones hayan sido true
+                if (ValPrecio && ValNombre && ValCod && ValDesc)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+
+        }
+
         private void Button1_Click(object sender, EventArgs e)
         {
             Articulo Art = new Articulo();
             ArticuloNegocio ArtNeg = new ArticuloNegocio();
 
-            try
+            if (Valida_campos())
             {
-                Art.Nombre = tbxNombre.Text;
-                Art.Descripcion = txbDescripcion.Text;
-                Art.CodigoArticulo = int.Parse(txbCodArticulo.Text);
-                Art.Marca = (Marca)cbxMarca.SelectedItem;
-                Art.Categoria = (Categoria)cbxCategoria.SelectedItem;
-                Art.Precio = float.Parse(txbPrecio.Text);
-
                 try
                 {
-                    ArtNeg.Agregar(Art);
-                    MessageBox.Show("Registro Agregado con exito!!");
+                    Art.Nombre = tbxNombre.Text;
+                    Art.Descripcion = txbDescripcion.Text;
+                    Art.CodigoArticulo = int.Parse(txbCodArticulo.Text);
+                    Art.Marca = (Marca)cbxMarca.SelectedItem;
+                    Art.Categoria = (Categoria)cbxCategoria.SelectedItem;
+                    Art.Precio = float.Parse(txbPrecio.Text);
+
+                    try
+                    {
+                        ArtNeg.Agregar(Art);
+                        MessageBox.Show("Registro Agregado con exito!!");
+                        this.Close();
+                    }
+                    catch (Exception Ex)
+                    {
+                        throw Ex;
+                    }
                 }
                 catch (Exception Ex)
                 {
-                    throw Ex;
+                    MessageBox.Show(Ex.Message);
                 }
             }
-            catch (Exception Ex)
+            else
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show("Hay campos incompletos o mal cargados");
             }
+            
         }
     }
 }

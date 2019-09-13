@@ -40,7 +40,7 @@ namespace APP_Comercio
             {
                 cbxArticulo.DataSource = ArtNeg.Listar();
                 cbxCategoria.DataSource = CatNeg.Listar();
-                cbxMarca.DataSource = MarNeg.Listar(); 
+                cbxMarca.DataSource = MarNeg.Listar();
 
 
                 Art = (Articulo)cbxArticulo.SelectedItem;
@@ -63,36 +63,105 @@ namespace APP_Comercio
         {
             this.Close();
         }
+        public bool Valida_campos()
+        {
+            bool ValCod, ValNombre, ValDesc, ValPrecio;
 
+            try
+            {
+                //Codigo de Articulo
+                if (txbCodArticulo.Text == "")
+                {
+                    ValCod = false;
+                    txbCodArticulo.BackColor = Color.Red;
+                }
+                else
+                {
+                    ValCod = true;
+                    txbCodArticulo.BackColor = Color.White;
+                }
+                //Descripcion
+                if (txbDescripcion.Text == "")
+                {
+                    ValDesc = false;
+                    txbDescripcion.BackColor = Color.Red;
+                }
+                else
+                {
+                    ValDesc = true;
+                    txbDescripcion.BackColor = Color.White;
+                }
+                //Precio
+                if (txbPrecio.Text == "")
+                {
+                    ValPrecio = false;
+                    txbPrecio.BackColor = Color.Red;
+                }
+                else
+                {
+                    ValPrecio = true;
+                    txbPrecio.BackColor = Color.White;
+                }
+                //Nombre
+                if (tbxNombre.Text == "")
+                {
+                    ValNombre = false;
+                    tbxNombre.BackColor = Color.Red;
+                }
+                else
+                {
+                    ValNombre = true;
+                    tbxNombre.BackColor = Color.White;
+                }
+                //Verifico que todas las validaciones hayan sido true
+                if (ValPrecio && ValNombre && ValCod && ValDesc)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+
+        }
         private void Button4_Click(object sender, EventArgs e)
         {
             ArticuloNegocio ArtNeg = new ArticuloNegocio();
             Articulo Art;
 
-            try
+            if (Valida_campos())
             {
-                Art = (Articulo)cbxArticulo.SelectedItem;
+                try
+                {
+                    Art = (Articulo)cbxArticulo.SelectedItem;
 
-                Art.Nombre = tbxNombre.Text;
-                Art.CodigoArticulo = Convert.ToInt32(txbCodArticulo.Text);
-                Art.Descripcion = txbDescripcion.Text;
-                Art.Precio = Convert.ToDouble(txbPrecio.Text);
-                Art.Marca = (Marca)cbxMarca.SelectedItem;
-                Art.Categoria = (Categoria)cbxCategoria.SelectedItem;
+                    Art.Nombre = tbxNombre.Text;
+                    Art.CodigoArticulo = Convert.ToInt32(txbCodArticulo.Text);
+                    Art.Descripcion = txbDescripcion.Text;
+                    Art.Precio = Convert.ToDouble(txbPrecio.Text);
+                    Art.Marca = (Marca)cbxMarca.SelectedItem;
+                    Art.Categoria = (Categoria)cbxCategoria.SelectedItem;
 
-                ArtNeg.Modificar(Art);
+                    ArtNeg.Modificar(Art);
+                    MessageBox.Show("Registro modificado");
+                    this.Close();
 
-                MessageBox.Show("Registro modificado");
-
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
             }
-            catch (Exception Ex)
+            else
             {
-
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show("Hay campos incompletos o mal cargados");
             }
-
-
-           
         }
     }
 }

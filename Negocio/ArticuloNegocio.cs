@@ -57,9 +57,11 @@ namespace Negocio
             {
                 Conexion.ConnectionString = "data source=NBBASAR605\\SQLEXPRESS; initial catalog=Negocio; integrated security=sspi";
                 Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "delete from [Negocio].[dbo].Articulo where ID = @ID_Borrar";
+                Comando.CommandText = "update [Negocio].[dbo].[Articulo] set baja = 1 where ID = @ID";
+
                 Comando.Parameters.Clear();
-                Comando.Parameters.AddWithValue("@ID_Borrar", ID_Borrar);
+                Comando.Parameters.AddWithValue("@ID", ID_Borrar);
+
 
                 Comando.Connection = Conexion;
 
@@ -77,7 +79,7 @@ namespace Negocio
                 throw Ex;
             }
 
-            
+
 
         }
 
@@ -88,13 +90,13 @@ namespace Negocio
             SqlCommand Comando = new SqlCommand();
             SqlConnection Conexion = new SqlConnection();
             SqlDataReader Lector;
-            
+
 
             try
             {
                 Conexion.ConnectionString = "data source=NBBASAR605\\SQLEXPRESS; initial catalog=Negocio; integrated security=sspi";
                 Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "select a.ID,Nombre,a.CodigoArticulo, a.Descripcion, a.Precio, m.Descripcion, c.Descripcion from[Negocio].[dbo].Articulo as a inner join[Negocio].[dbo].Categoria as c on c.ID = a.ID_Categoria inner join Marca as m on a.ID_Marca = m.ID where a.Nombre like '%"+Cadena + "%'";
+                Comando.CommandText = "select a.ID,Nombre,a.CodigoArticulo, a.Descripcion, a.Precio, m.Descripcion, c.Descripcion from[Negocio].[dbo].Articulo as a inner join[Negocio].[dbo].Categoria as c on c.ID = a.ID_Categoria inner join Marca as m on a.ID_Marca = m.ID where a.baja is null and a.Nombre like '%" + Cadena + "%'";
                 Comando.Parameters.Clear();
                 Comando.Parameters.AddWithValue("@Cadena", Cadena);
                 Articulo Aux;
@@ -104,7 +106,7 @@ namespace Negocio
 
                 Lector = Comando.ExecuteReader();
 
-                while(Lector.Read())
+                while (Lector.Read())
                 {
                     Aux = new Articulo();
 
@@ -133,7 +135,7 @@ namespace Negocio
 
         }
 
-        public bool Agregar( Articulo Artic)
+        public bool Agregar(Articulo Artic)
         {
             bool Resultado = false;
 
@@ -144,9 +146,9 @@ namespace Negocio
             {
                 Conexion.ConnectionString = "data source=NBBASAR605\\SQLEXPRESS; initial catalog=POKEDEX_DB; integrated security=sspi";
                 Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "Insert into [Negocio].[dbo].Articulo values(@Nombre,@CodigoArticulo,@Descripcion,@ID_Marca,@ID_Categoria,@Precio,'')";
+                Comando.CommandText = "Insert into [Negocio].[dbo].Articulo values(@Nombre,@CodigoArticulo,@Descripcion,@ID_Marca,@ID_Categoria,@Precio,NULL,NULL)";
                 Comando.Parameters.Clear();
-                Comando.Parameters.AddWithValue("@Nombre",Artic.Nombre);
+                Comando.Parameters.AddWithValue("@Nombre", Artic.Nombre);
                 Comando.Parameters.AddWithValue("@CodigoArticulo", Artic.CodigoArticulo);
                 Comando.Parameters.AddWithValue("@Descripcion", Artic.Descripcion);
                 Comando.Parameters.AddWithValue("@Precio", Artic.Precio);
@@ -165,10 +167,10 @@ namespace Negocio
 
                 throw Ex;
             }
-            
+
 
         }
-        
+
         public List<Articulo> Listar()
         {
             List<Articulo> Lista = new List<Articulo>();
@@ -184,7 +186,7 @@ namespace Negocio
                 Conexion.ConnectionString = "data source=NBBASAR605\\SQLEXPRESS; initial catalog=Negocio; integrated security=sspi";
                 Comando.CommandType = System.Data.CommandType.Text;
 
-                Comando.CommandText = "SELECT a.[ID],[Nombre],[CodigoArticulo],a.[Descripcion],a.Precio,Marca.[Descripcion] as Marca,[Categoria].Descripcion as Categoria,[Imagen] FROM[Negocio].[dbo].[Articulo] as a inner join[Negocio].[dbo].[Categoria] on Categoria.ID = a.ID_Categoria inner join Marca on Marca.ID = a.ID_Marca";
+                Comando.CommandText = "SELECT a.[ID],[Nombre],[CodigoArticulo],a.[Descripcion],a.Precio,Marca.[Descripcion] as Marca,[Categoria].Descripcion as Categoria,[Imagen] FROM[Negocio].[dbo].[Articulo] as a inner join[Negocio].[dbo].[Categoria] on Categoria.ID = a.ID_Categoria inner join Marca on Marca.ID = a.ID_Marca where a.baja is null";
                 Comando.Connection = Conexion;
 
                 Conexion.Open();
@@ -204,7 +206,7 @@ namespace Negocio
                     Aux.Categoria.Descripcion = Lector.GetString(6);
                     Lista.Add(Aux);
                 }
-                    return Lista;
+                return Lista;
             }
             catch (Exception Ex)
             {

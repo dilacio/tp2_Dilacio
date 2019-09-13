@@ -81,6 +81,7 @@
             this.tbBusquedaArticulo.Location = new System.Drawing.Point(19, 20);
             this.tbBusquedaArticulo.Multiline = true;
             this.tbBusquedaArticulo.Name = "tbBusquedaArticulo";
+            this.tbBusquedaArticulo.ReadOnly = true;
             this.tbBusquedaArticulo.Size = new System.Drawing.Size(69, 32);
             this.tbBusquedaArticulo.TabIndex = 4;
             this.tbBusquedaArticulo.Text = "Busqueda de articulo";
@@ -100,6 +101,7 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.SteelBlue;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
@@ -138,6 +140,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.SteelBlue;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
@@ -161,6 +164,7 @@
             this.textBox2.Location = new System.Drawing.Point(14, 18);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(79, 32);
             this.textBox2.TabIndex = 4;
             this.textBox2.Text = "Listado de Articulos";
@@ -190,6 +194,7 @@
             // btnFrmAdd
             // 
             this.btnFrmAdd.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnFrmAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFrmAdd.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btnFrmAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnFrmAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
@@ -213,6 +218,7 @@
             this.tbxAdd.Location = new System.Drawing.Point(0, 20);
             this.tbxAdd.Multiline = true;
             this.tbxAdd.Name = "tbxAdd";
+            this.tbxAdd.ReadOnly = true;
             this.tbxAdd.Size = new System.Drawing.Size(105, 32);
             this.tbxAdd.TabIndex = 4;
             this.tbxAdd.Text = "Agregar Articulo";
@@ -257,6 +263,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.SteelBlue;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
@@ -280,6 +287,7 @@
             this.textBox4.Location = new System.Drawing.Point(0, 19);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(100, 26);
             this.textBox4.TabIndex = 4;
             this.textBox4.Text = "Borrar Articulo";
@@ -310,6 +318,7 @@
             // btnFrmUpdate
             // 
             this.btnFrmUpdate.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnFrmUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFrmUpdate.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btnFrmUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
             this.btnFrmUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
@@ -333,6 +342,7 @@
             this.tbxModificar.Location = new System.Drawing.Point(1, 13);
             this.tbxModificar.Multiline = true;
             this.tbxModificar.Name = "tbxModificar";
+            this.tbxModificar.ReadOnly = true;
             this.tbxModificar.Size = new System.Drawing.Size(98, 27);
             this.tbxModificar.TabIndex = 4;
             this.tbxModificar.Text = "Modificar Articulo";
