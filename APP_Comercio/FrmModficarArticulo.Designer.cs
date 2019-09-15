@@ -33,6 +33,7 @@
             this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.lblHome = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.txbPrecio = new System.Windows.Forms.TextBox();
@@ -50,12 +51,11 @@
             this.cbxArticulo = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pctHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             this.panel7.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pctHome
@@ -88,6 +88,14 @@
             this.panel7.Controls.Add(this.lblHome);
             resources.ApplyResources(this.panel7, "panel7");
             this.panel7.Name = "panel7";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::APP_Comercio.Properties.Resources.close_icon_13590;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // textBox5
             // 
@@ -192,6 +200,7 @@
             resources.ApplyResources(this.cbxArticulo, "cbxArticulo");
             this.cbxArticulo.FormattingEnabled = true;
             this.cbxArticulo.Name = "cbxArticulo";
+            this.cbxArticulo.SelectedIndexChanged += new System.EventHandler(this.CbxArticulo_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -216,14 +225,6 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Name = "label1";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::APP_Comercio.Properties.Resources.close_icon_13590;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
-            // 
             // FrmModficarArticulo
             // 
             resources.ApplyResources(this, "$this");
@@ -242,9 +243,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

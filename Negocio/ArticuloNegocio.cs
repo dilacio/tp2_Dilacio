@@ -13,29 +13,24 @@ namespace Negocio
 
         public bool Modificar(Articulo Art)
         {
-            SqlCommand Comando = new SqlCommand();
-            SqlConnection Conexion = new SqlConnection();
+
+            AccesoDatos Datos = new AccesoDatos();
 
             try
             {
-                Conexion.ConnectionString = "data source=NBBASAR605\\SQLEXPRESS; initial catalog=Negocio; integrated security=sspi";
-                Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "update [Negocio].[dbo].[Articulo] set [Nombre] = @Nombre,[CodigoArticulo]= @CodArt,[Descripcion] = @Descripcion,[ID_Marca] = @ID_Marca,[ID_Categoria]= @ID_Categoria,[Precio] = @Precio where ID = @ID";
+                Datos.SetearQuery("update[Articulo] set[Nombre] = @Nombre,[CodigoArticulo] = @CodArt,[Descripcion] = @Descripcion,[ID_Marca] = @ID_Marca,[ID_Categoria] = @ID_Categoria,[Precio] = @Precio where ID = @ID");
 
-                Comando.Parameters.Clear();
-                Comando.Parameters.AddWithValue("@ID", Art.ID);
-                Comando.Parameters.AddWithValue("@Nombre", Art.Nombre);
-                Comando.Parameters.AddWithValue("@CodArt", Art.CodigoArticulo);
-                Comando.Parameters.AddWithValue("@Descripcion", Art.Descripcion);
-                Comando.Parameters.AddWithValue("@ID_Marca", Art.Marca.ID);
-                Comando.Parameters.AddWithValue("@ID_Categoria", Art.Categoria.ID);
-                Comando.Parameters.AddWithValue("@Precio", Art.Precio);
 
-                Comando.Connection = Conexion;
 
-                Conexion.Open();
+                Datos.AgregarParametro("@ID", Art.ID.ToString());
+                Datos.AgregarParametro("@Nombre", Art.Nombre);
+                Datos.AgregarParametro("@CodArt", Art.CodigoArticulo.ToString());
+                Datos.AgregarParametro("@Descripcion", Art.Descripcion);
+                Datos.AgregarParametro("@ID_Marca", Art.Marca.ID.ToString());
+                Datos.AgregarParametro("@ID_Categoria", Art.Categoria.ID.ToString());
+                Datos.AgregarParametro("@Precio", Art.Precio.ToString());
 
-                Comando.ExecuteNonQuery();
+                Datos.Ejecucion_Accion();
 
                 return true;
 
@@ -50,24 +45,14 @@ namespace Negocio
 
         public bool Eliminar(int ID_Borrar)
         {
-            SqlCommand Comando = new SqlCommand();
-            SqlConnection Conexion = new SqlConnection();
+            AccesoDatos Datos = new AccesoDatos();
 
             try
             {
-                Conexion.ConnectionString = "data source=NBBASAR605\\SQLEXPRESS; initial catalog=Negocio; integrated security=sspi";
-                Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "update [Negocio].[dbo].[Articulo] set baja = 1 where ID = @ID";
+                Datos.SetearQuery("update [Negocio].[dbo].[Articulo] set baja = 1 where ID = @ID");
+                Datos.AgregarParametro("@ID", ID_Borrar.ToString());
 
-                Comando.Parameters.Clear();
-                Comando.Parameters.AddWithValue("@ID", ID_Borrar);
-
-
-                Comando.Connection = Conexion;
-
-                Conexion.Open();
-
-                Comando.ExecuteNonQuery();
+                Datos.Ejecucion_Accion();
 
                 return true;
 
@@ -78,47 +63,36 @@ namespace Negocio
 
                 throw Ex;
             }
-
-
-
         }
 
         public List<Articulo> Buscar(string Cadena)
         {
             List<Articulo> Lista = new List<Articulo>();
 
-            SqlCommand Comando = new SqlCommand();
-            SqlConnection Conexion = new SqlConnection();
-            SqlDataReader Lector;
-
+            AccesoDatos Datos = new AccesoDatos();
 
             try
             {
-                Conexion.ConnectionString = "data source=NBBASAR605\\SQLEXPRESS; initial catalog=Negocio; integrated security=sspi";
-                Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "select a.ID,Nombre,a.CodigoArticulo, a.Descripcion, a.Precio, m.Descripcion, c.Descripcion from[Negocio].[dbo].Articulo as a inner join[Negocio].[dbo].Categoria as c on c.ID = a.ID_Categoria inner join Marca as m on a.ID_Marca = m.ID where a.baja is null and a.Nombre like '%" + Cadena + "%'";
-                Comando.Parameters.Clear();
-                Comando.Parameters.AddWithValue("@Cadena", Cadena);
+                Datos.SetearQuery("select a.ID, Nombre, a.CodigoArticulo, a.Descripcion, a.Precio, m.Descripcion, c.Descripcion from[Negocio].[dbo].Articulo as a inner join[Negocio].[dbo].Categoria as c on c.ID = a.ID_Categoria inner join Marca as m on a.ID_Marca = m.ID where a.baja = 0 and a.Nombre like '%" + Cadena + "%'");
+                Datos.AgregarParametro("@Cadena", Cadena);
+
                 Articulo Aux;
 
-                Comando.Connection = Conexion;
-                Conexion.Open();
+                Datos.EjecutarLector();
 
-                Lector = Comando.ExecuteReader();
-
-                while (Lector.Read())
+                while (Datos.Lector.Read())
                 {
                     Aux = new Articulo();
 
-                    Aux.ID = Lector.GetInt32(0);
-                    Aux.Nombre = Lector.GetString(1);
-                    Aux.CodigoArticulo = Lector.GetInt32(2);
-                    Aux.Descripcion = Lector.GetString(3);
-                    Aux.Precio = Lector.GetDouble(4);
+                    Aux.ID = Datos.Lector.GetInt32(0);
+                    Aux.Nombre = Datos.Lector.GetString(1);
+                    Aux.CodigoArticulo = Datos.Lector.GetInt32(2);
+                    Aux.Descripcion = Datos.Lector.GetString(3);
+                    Aux.Precio = Datos.Lector.GetDouble(4);
                     Aux.Marca = new Marca();
-                    Aux.Marca.Descripcion = Lector.GetString(5);
+                    Aux.Marca.Descripcion = Datos.Lector.GetString(5);
                     Aux.Categoria = new Categoria();
-                    Aux.Categoria.Descripcion = Lector.GetString(6);
+                    Aux.Categoria.Descripcion = Datos.Lector.GetString(6);
 
                     Lista.Add(Aux);
 
@@ -139,26 +113,19 @@ namespace Negocio
         {
             bool Resultado = false;
 
-            SqlCommand Comando = new SqlCommand();
-            SqlConnection Conexion = new SqlConnection();
+            AccesoDatos Datos = new AccesoDatos();
 
             try
             {
-                Conexion.ConnectionString = "data source=NBBASAR605\\SQLEXPRESS; initial catalog=POKEDEX_DB; integrated security=sspi";
-                Comando.CommandType = System.Data.CommandType.Text;
-                Comando.CommandText = "Insert into [Negocio].[dbo].Articulo values(@Nombre,@CodigoArticulo,@Descripcion,@ID_Marca,@ID_Categoria,@Precio,NULL,NULL)";
-                Comando.Parameters.Clear();
-                Comando.Parameters.AddWithValue("@Nombre", Artic.Nombre);
-                Comando.Parameters.AddWithValue("@CodigoArticulo", Artic.CodigoArticulo);
-                Comando.Parameters.AddWithValue("@Descripcion", Artic.Descripcion);
-                Comando.Parameters.AddWithValue("@Precio", Artic.Precio);
-                Comando.Parameters.AddWithValue("@ID_Marca", Artic.Marca.ID);
-                Comando.Parameters.AddWithValue("@ID_Categoria", Artic.Categoria.ID);
+                Datos.SetearQuery("Insert into [Negocio].[dbo].Articulo values(@Nombre,@CodigoArticulo,@Descripcion,@ID_Marca,@ID_Categoria,@Precio,NULL,0)");
+                Datos.AgregarParametro("@Nombre", Artic.Nombre);
+                Datos.AgregarParametro("@CodigoArticulo", Artic.CodigoArticulo.ToString());
+                Datos.AgregarParametro("@Descripcion", Artic.Descripcion);
+                Datos.AgregarParametro("@Precio", Artic.Precio.ToString());
+                Datos.AgregarParametro("@ID_Marca", Artic.Marca.ID.ToString());
+                Datos.AgregarParametro("@ID_Categoria", Artic.Categoria.ID.ToString());
 
-
-                Comando.Connection = Conexion;
-                Conexion.Open();
-                Comando.ExecuteNonQuery();
+                Datos.EjecutarLector();
 
                 return Resultado;
             }
@@ -175,35 +142,27 @@ namespace Negocio
         {
             List<Articulo> Lista = new List<Articulo>();
 
-            SqlCommand Comando = new SqlCommand();
-            SqlConnection Conexion = new SqlConnection();
-            SqlDataReader Lector;
+            AccesoDatos Datos = new AccesoDatos();
 
             Articulo Aux;
 
             try
             {
-                Conexion.ConnectionString = "data source=NBBASAR605\\SQLEXPRESS; initial catalog=Negocio; integrated security=sspi";
-                Comando.CommandType = System.Data.CommandType.Text;
+                Datos.SetearQuery("SELECT a.[ID],[Nombre],[CodigoArticulo], a.[Descripcion], a.Precio, Marca.[Descripcion] as Marca,[Categoria].Descripcion as Categoria,[Imagen] FROM[Negocio].[dbo].[Articulo] as a inner join[Negocio].[dbo].[Categoria] on Categoria.ID = a.ID_Categoria inner join Marca on Marca.ID = a.ID_Marca where a.baja = 0");
+                Datos.EjecutarLector();
 
-                Comando.CommandText = "SELECT a.[ID],[Nombre],[CodigoArticulo],a.[Descripcion],a.Precio,Marca.[Descripcion] as Marca,[Categoria].Descripcion as Categoria,[Imagen] FROM[Negocio].[dbo].[Articulo] as a inner join[Negocio].[dbo].[Categoria] on Categoria.ID = a.ID_Categoria inner join Marca on Marca.ID = a.ID_Marca where a.baja is null";
-                Comando.Connection = Conexion;
-
-                Conexion.Open();
-                Lector = Comando.ExecuteReader();
-
-                while (Lector.Read())
+                while (Datos.Lector.Read())
                 {
                     Aux = new Articulo();
-                    Aux.ID = Lector.GetInt32(0);
-                    Aux.Nombre = Lector.GetString(1);
-                    Aux.CodigoArticulo = Lector.GetInt32(2);
-                    Aux.Descripcion = Lector.GetString(3);
-                    Aux.Precio = Lector.GetDouble(4);
+                    Aux.ID = Datos.Lector.GetInt32(0);
+                    Aux.Nombre = Datos.Lector.GetString(1);
+                    Aux.CodigoArticulo = Datos.Lector.GetInt32(2);
+                    Aux.Descripcion = Datos.Lector.GetString(3);
+                    Aux.Precio = Datos.Lector.GetDouble(4);
                     Aux.Marca = new Marca();
-                    Aux.Marca.Descripcion = Lector.GetString(5);
+                    Aux.Marca.Descripcion = Datos.Lector.GetString(5);
                     Aux.Categoria = new Categoria();
-                    Aux.Categoria.Descripcion = Lector.GetString(6);
+                    Aux.Categoria.Descripcion = Datos.Lector.GetString(6);
                     Lista.Add(Aux);
                 }
                 return Lista;
@@ -214,7 +173,8 @@ namespace Negocio
             }
             finally
             {
-                Conexion.Close();
+                Datos.CerrarConexion();
+
             }
         }
     }

@@ -37,17 +37,18 @@ namespace APP_Comercio
 
             try
             {
+
                 Lista = Art.Listar();
 
                 dgvArticulo.DataSource = Lista;
                 dgvArticulo.Columns[0].Visible = false;
                 dgvArticulo.Columns[3].Visible = false;
+
             }
             catch (Exception Ex)
             {
                 throw Ex;
             }
-
         }
     }
 }

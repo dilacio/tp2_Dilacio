@@ -53,7 +53,7 @@ namespace APP_Comercio
             try
             {
                 //Codigo de Articulo
-                if (txbCodArticulo.Text == "")
+                if (string.IsNullOrEmpty(txbCodArticulo.Text))
                 {
                     ValCod = false;
                     txbCodArticulo.BackColor = Color.Red;
@@ -64,7 +64,7 @@ namespace APP_Comercio
                     txbCodArticulo.BackColor = Color.White;
                 }
                 //Descripcion
-                if (txbDescripcion.Text == "")
+                if (string.IsNullOrEmpty(txbDescripcion.Text))
                 {
                     ValDesc = false;
                     txbDescripcion.BackColor = Color.Red;
@@ -75,7 +75,7 @@ namespace APP_Comercio
                     txbDescripcion.BackColor = Color.White;
                 }
                 //Precio
-                if (txbPrecio.Text == "")
+                if (string.IsNullOrEmpty(txbPrecio.Text ))
                 {
                     ValPrecio = false;
                     txbPrecio.BackColor = Color.Red;
@@ -86,7 +86,7 @@ namespace APP_Comercio
                     txbPrecio.BackColor = Color.White;
                 }
                 //Nombre
-                if (tbxNombre.Text == "")
+                if (string.IsNullOrEmpty(tbxNombre.Text))
                 {
                     ValNombre = false;
                     tbxNombre.BackColor = Color.Red;

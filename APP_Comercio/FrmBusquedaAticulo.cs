@@ -25,26 +25,6 @@ namespace APP_Comercio
             this.Close();
         }
 
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PctCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void FrmBusquedaAticulo_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Button4_Click(object sender, EventArgs e)
         {
             ArticuloNegocio ArtNeg = new ArticuloNegocio();
@@ -61,6 +41,11 @@ namespace APP_Comercio
 
                 throw Ex;
             }
+        }
+
+        private void PctCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

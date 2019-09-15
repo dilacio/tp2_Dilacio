@@ -424,7 +424,6 @@
             this.lblHome.Size = new System.Drawing.Size(105, 15);
             this.lblHome.TabIndex = 13;
             this.lblHome.Text = "Pagina Pricipal";
-            this.lblHome.Click += new System.EventHandler(this.Label1_Click);
             // 
             // FrmPrincipal
             // 
@@ -441,8 +440,6 @@
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "FrmPrincipal";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.MouseLeave += new System.EventHandler(this.FrmPrincipal_MouseLeave);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

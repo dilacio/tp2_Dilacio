@@ -34,10 +34,12 @@
             this.pctCerrar = new System.Windows.Forms.PictureBox();
             this.lblHome = new System.Windows.Forms.Label();
             this.dgvArticulo = new System.Windows.Forms.DataGridView();
+            this.pcbImagen = new System.Windows.Forms.PictureBox();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -99,8 +101,16 @@
             this.dgvArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulo.Location = new System.Drawing.Point(67, 107);
             this.dgvArticulo.Name = "dgvArticulo";
-            this.dgvArticulo.Size = new System.Drawing.Size(645, 294);
+            this.dgvArticulo.Size = new System.Drawing.Size(422, 294);
             this.dgvArticulo.TabIndex = 28;
+            // 
+            // pcbImagen
+            // 
+            this.pcbImagen.Location = new System.Drawing.Point(561, 152);
+            this.pcbImagen.Name = "pcbImagen";
+            this.pcbImagen.Size = new System.Drawing.Size(175, 208);
+            this.pcbImagen.TabIndex = 29;
+            this.pcbImagen.TabStop = false;
             // 
             // frmListadoDeArticulos
             // 
@@ -108,6 +118,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pcbImagen);
             this.Controls.Add(this.dgvArticulo);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.label1);
@@ -120,6 +131,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +144,6 @@
         private System.Windows.Forms.PictureBox pctCerrar;
         private System.Windows.Forms.Label lblHome;
         private System.Windows.Forms.DataGridView dgvArticulo;
+        private System.Windows.Forms.PictureBox pcbImagen;
     }
 }

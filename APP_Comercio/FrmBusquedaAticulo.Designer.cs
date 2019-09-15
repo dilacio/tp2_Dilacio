@@ -158,7 +158,6 @@
             this.Name = "FrmBusquedaAticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBusquedaArticulo";
-            this.Load += new System.EventHandler(this.FrmBusquedaAticulo_Load);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctHome)).EndInit();

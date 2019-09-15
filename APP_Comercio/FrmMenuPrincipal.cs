@@ -17,34 +17,9 @@ namespace APP_Comercio
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void ToolStripLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ToolStripButton1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GroupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -73,11 +48,6 @@ namespace APP_Comercio
             FrmModficarArticulo ModificarArticulo = new FrmModficarArticulo();
 
             ModificarArticulo.Show();
-        }
-
-        private void FrmPrincipal_MouseLeave(object sender, EventArgs e)
-        {
-
         }
 
         private void PictureBox6_Click(object sender, EventArgs e)
@@ -118,10 +88,6 @@ namespace APP_Comercio
             Modificar.Show();
         }
 
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Button4_Click_1(object sender, EventArgs e)
         {

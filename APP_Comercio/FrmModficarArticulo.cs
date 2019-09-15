@@ -19,38 +19,33 @@ namespace APP_Comercio
             InitializeComponent();
         }
 
-        private void TsBarra_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void PctCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void FrmModficarArticulo_Load(object sender, EventArgs e)
-        {
+        { 
             ArticuloNegocio ArtNeg = new ArticuloNegocio();
             CategoriaNegocio CatNeg = new CategoriaNegocio();
             MarcaNegocio MarNeg = new MarcaNegocio();
 
-            Articulo Art;
+            //Articulo Art;
             try
             {
                 cbxArticulo.DataSource = ArtNeg.Listar();
+
                 cbxCategoria.DataSource = CatNeg.Listar();
                 cbxMarca.DataSource = MarNeg.Listar();
 
 
-                Art = (Articulo)cbxArticulo.SelectedItem;
-
-                tbxNombre.Text = Art.Nombre;
-                txbCodArticulo.Text = Art.CodigoArticulo.ToString();
-                txbDescripcion.Text = Art.Descripcion;
-                txbPrecio.Text = Art.Precio.ToString();
-                cbxCategoria.SelectedItem = Art.Categoria.Descripcion;
-                cbxMarca.SelectedItem = Art.Marca.Descripcion;
+            ////    Art = (Articulo)cbxArticulo.SelectedItem;
+            ////    tbxNombre.Text = Art.Nombre;
+            ////    txbCodArticulo.Text = Art.CodigoArticulo.ToString();
+            ////    txbDescripcion.Text = Art.Descripcion;
+            ////    txbPrecio.Text = Art.Precio.ToString();
+            ////    cbxCategoria.SelectedItem = Art.Categoria.Descripcion;
+            ////    cbxMarca.SelectedItem = Art.Marca.Descripcion;
             }
             catch (Exception Ex)
             {
@@ -161,6 +156,30 @@ namespace APP_Comercio
             else
             {
                 MessageBox.Show("Hay campos incompletos o mal cargados");
+            }
+        }
+
+        private void CbxArticulo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            Articulo Art;
+            try
+            {
+
+
+                Art = (Articulo)cbxArticulo.SelectedItem;
+
+                tbxNombre.Text = Art.Nombre;
+                txbCodArticulo.Text = Art.CodigoArticulo.ToString();
+                txbDescripcion.Text = Art.Descripcion;
+                txbPrecio.Text = Art.Precio.ToString();
+                cbxCategoria.Text = Art.Categoria.Descripcion;
+                cbxMarca.Text = Art.Marca.Descripcion;
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
             }
         }
     }
